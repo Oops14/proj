@@ -24,11 +24,16 @@
     justify-content: space-between;
 }
 
+.post_buttons_block {
+  position: relative;
+}
+
 .btn {
     cursor: pointer;
     margin-right: 20px;
     transition: all .1s linear;
 
+    &.acite_dropdown,
     &:hover {
         color: #3e63a1;
     }
@@ -36,4 +41,24 @@
     &:last-child {
         margin-right: 0;
     }
+}
+
+.btn_more_dropdown {
+  position: absolute;
+  right: 65%;
+
+  width: 100px;
+  background-color: #3e63a1;
+
+  .dropdown_item {
+    padding: 5px;
+    cursor: pointer;
+    color: #fff;
+
+
+    &:hover {
+      opacity: 0.8;
+      background-color: #224773;
+    }
+  }
 }

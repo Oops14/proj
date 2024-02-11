@@ -15,8 +15,14 @@ export const Home = () => {
     );
     let dispatch = useDispatch();
 
+    console.log(posts)
+
     const addPost = (title: string) => {
-        dispatch(AddPostAC(title));
+        if (title.trim() !== '') {
+            dispatch(AddPostAC(title));
+        } else {
+            alert("The Post cannot be empty!")
+        }
     };
 
     const removePost = (postId: string) => {

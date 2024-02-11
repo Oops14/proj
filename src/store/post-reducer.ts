@@ -2,8 +2,9 @@ import {v4 as uuidv4} from "uuid";
 
 type AddPostACType = ReturnType<typeof AddPostAC>;
 type RemovePostACType = ReturnType<typeof RemovePostAC>;
+type EditPostACType = ReturnType<typeof EditPostAC>;
 
-type ActionsType = AddPostACType | RemovePostACType;
+type ActionsType = AddPostACType | RemovePostACType | EditPostACType;
 
 export type PostType = {
     id: string;
@@ -41,6 +42,15 @@ export let RemovePostAC = (postId: string) => {
     } as const;
 };
 
+export let EditPostAC = (postId: string, newDesc: string) => {
+    return {
+        type: "EDIT_POST",
+        payload: {
+            postId, newDesc
+        },
+    } as const;
+};
+
 export const postReducer = (state = initialState, action: ActionsType) => {
     switch (action.type) {
         case "ADD_POST": {
@@ -53,8 +63,10 @@ export const postReducer = (state = initialState, action: ActionsType) => {
             return [...state, newValue];
         }
         case "REMOVE_POST": {
-            let arr = [...state];
-            return arr.filter(post => post.id !== action.payload.postId);
+            return state.filter(post => post.id !== action.payload.postId);
+        }
+        case "EDIT_POST": {
+            return state.map(post => post.id === action.payload.postId ? {...post, postDescription: action.payload.newDesc } : post);
         }
         default: {
             return state;

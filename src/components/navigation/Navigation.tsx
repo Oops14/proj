@@ -16,10 +16,9 @@ export const Navigation = () => {
             <ul className={s.nav_menu}>
                 {pages.map((page, index) => {
                     return (
-                        <li className={s.nav_item}>
+                        <li key={index} className={s.nav_item}>
                             <NavLink
                                 to={page.navlink}
-                                key={index}
                                 className={({ isActive }) =>
                                     isActive ? s.active : ""
                                 }
