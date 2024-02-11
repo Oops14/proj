@@ -36,6 +36,9 @@ export const Home = () => {
             <div className={s.container}>
                 <div className="row">
                     <div className="col-lg-2">
+                        {/*
+                         * TODO: Add additional functionality for banners (props, etc.)
+                         */}
                         <Banner/>
                         <Banner/>
                     </div>
@@ -55,6 +58,9 @@ export const Home = () => {
                     </div>
                     <div className="col-lg-2">
                         <h5 className={s.contacts_section_title}>Contacts</h5>
+                        {/*
+                         * TODO: Add functionality to show contacts that depends on data.
+                         */}
                         <ContactItem/>
                         <ContactItem/>
                         <ContactItem/>
