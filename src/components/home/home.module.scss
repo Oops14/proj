@@ -1,0 +1,64 @@
+body {
+    background-color: #f0f2f5;
+}
+
+.container {
+    width: 100%;
+    max-width: 1100px;
+}
+
+.home_main {
+    display: flex;
+    justify-content: center;
+
+    background-color: #f0f2f5;
+}
+
+// FORM
+.account_icon {
+    
+    img {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+.main_home_form {
+    padding: 15px 25px;
+    background-color: #fff;
+
+    border-radius: 10px;
+    margin-bottom: 40px;
+
+    .form_attach {
+        margin-top: 15px;
+        text-align: right;
+
+        .attach_icon {
+            margin-right: 10px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all .1s linear;
+
+            &:hover {
+                color: rgb(89, 29, 200);
+            }
+        }
+
+    }
+}
+
+.form_input {
+    display: flex;
+    gap: 10px;
+
+    input {
+        width: 100%;
+        background-color: #f0f2f5;
+        border-radius: 10px;
+        padding: 5px 15px;
+
+        border: 0;
+        outline: none;
+    }
+}

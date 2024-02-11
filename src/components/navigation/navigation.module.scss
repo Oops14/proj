@@ -1,0 +1,24 @@
+
+.nav_menu {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 0;
+
+    li {
+        list-style: none;
+
+        a {
+            text-decoration: none;
+            font-weight: 600;
+
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+
+        .active {
+            color: #fff;
+        }
+    }
+}
+
