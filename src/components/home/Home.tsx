@@ -3,11 +3,13 @@ import s from "./home.module.scss";
 
 // Import Bootstrap and its default variables
 import "bootstrap/scss/bootstrap.scss";
-import { HomeForm } from "../forms/HomeForm";
-import { HomePost } from "./post/HomePost";
-import { useDispatch, useSelector } from "react-redux";
-import { AppRootStateType } from "../../store/store";
-import { AddPostAC, PostType, RemovePostAC } from "../../store/post-reducer";
+import {HomeForm} from "../forms/HomeForm";
+import {HomePost} from "./post/HomePost";
+import {useDispatch, useSelector} from "react-redux";
+import {AppRootStateType} from "../../store/store";
+import {AddPostAC, PostType, RemovePostAC} from "../../store/post-reducer";
+import {ContactItem} from "../contacts/ContactItem";
+import {Banner} from "../banner/Banner";
 
 export const Home = () => {
     let posts = useSelector<AppRootStateType, Array<PostType>>(
@@ -15,7 +17,7 @@ export const Home = () => {
     );
     let dispatch = useDispatch();
 
-    console.log(posts)
+    console.log(posts);
 
     const addPost = (title: string) => {
         if (title.trim() !== '') {
@@ -32,11 +34,13 @@ export const Home = () => {
     return (
         <div className={s.home_main}>
             <div className={s.container}>
-                <h1>Home</h1>
                 <div className="row">
-                    <div className="col-lg-2"></div>
+                    <div className="col-lg-2">
+                        <Banner/>
+                        <Banner/>
+                    </div>
                     <div className="col-lg-8">
-                        <HomeForm addPost={addPost} />
+                        <HomeForm addPost={addPost}/>
                         {posts.map((post) => {
                             return (
                                 <HomePost
@@ -49,7 +53,12 @@ export const Home = () => {
                             );
                         })}
                     </div>
-                    <div className="col-lg-2"></div>
+                    <div className="col-lg-2">
+                        <h5 className={s.contacts_section_title}>Contacts</h5>
+                        <ContactItem/>
+                        <ContactItem/>
+                        <ContactItem/>
+                    </div>
                 </div>
             </div>
         </div>

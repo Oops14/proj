@@ -1,0 +1,24 @@
+
+.contact_item {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  cursor: pointer;
+
+  margin-bottom: 15px;
+}
+
+.contact_avatar {
+  margin-right: 10px;
+
+  img {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+.contact_name {
+  font-size: 13px;
+}

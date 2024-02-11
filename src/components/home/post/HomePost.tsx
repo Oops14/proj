@@ -57,7 +57,7 @@ export const HomePost = (props: HomePostType) => {
         <div className={s.post_item}>
             {isPostEdited ? (
                 <>
-                    <div className={s.post_header_panel}>
+                    <div className={s.post_header_panel + ' ' + s.in_editing}>
                         <div className={s.account_icon}>
                             <img
                                 src="https://www.svgrepo.com/show/217131/google.svg"
@@ -74,8 +74,10 @@ export const HomePost = (props: HomePostType) => {
                             <CloseOutlinedIcon onClick={removePost} className={s.btn}/>
                         </div>
                     </div>
-                    <textarea value={newDescription} onChange={defineNewDescription}></textarea>
-                    <button onClick={submitNewDescription}>Submit</button>
+                    <textarea className={s.post_textarea} value={newDescription} onChange={defineNewDescription}></textarea>
+                    <div className={s.submit_block}>
+                        <button className={s.submit_edited_post} onClick={submitNewDescription}>Submit</button>
+                    </div>
                 </>
             ) : (
                 <>
