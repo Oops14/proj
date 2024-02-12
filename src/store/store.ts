@@ -1,8 +1,10 @@
 import {combineReducers, legacy_createStore} from "redux";
 import {postReducer} from "./post-reducer";
+import { friendsReducer } from "./friends-reducer";
 
 const rootReducer = combineReducers({
-    postReducer: postReducer
+    postReducer: postReducer,
+    friendsReducer: friendsReducer,
 })
 
 // непосредственно создаём store

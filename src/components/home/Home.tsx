@@ -3,27 +3,31 @@ import s from "./home.module.scss";
 
 // Import Bootstrap and its default variables
 import "bootstrap/scss/bootstrap.scss";
-import {HomeForm} from "../forms/HomeForm";
-import {HomePost} from "./post/HomePost";
-import {useDispatch, useSelector} from "react-redux";
-import {AppRootStateType} from "../../store/store";
-import {AddPostAC, PostType, RemovePostAC} from "../../store/post-reducer";
-import {ContactItem} from "../contacts/ContactItem";
-import {Banner} from "../banner/Banner";
+import { HomeForm } from "../forms/HomeForm";
+import { HomePost } from "./post/HomePost";
+import { useDispatch, useSelector } from "react-redux";
+import { AppRootStateType } from "../../store/store";
+import { AddPostAC, PostType, RemovePostAC } from "../../store/post-reducer";
+import { ContactItem } from "../contacts/ContactItem";
+import { Banner } from "../banner/Banner";
+import { FriendsStateType } from "../../store/friends-reducer";
 
 export const Home = () => {
     let posts = useSelector<AppRootStateType, Array<PostType>>(
         (state) => state.postReducer
+    );
+    let myContacts = useSelector<AppRootStateType, Array<FriendsStateType>>(
+        (state) => state.friendsReducer
     );
     let dispatch = useDispatch();
 
     console.log(posts);
 
     const addPost = (title: string) => {
-        if (title.trim() !== '') {
+        if (title.trim() !== "") {
             dispatch(AddPostAC(title));
         } else {
-            alert("The Post cannot be empty!")
+            alert("The Post cannot be empty!");
         }
     };
 
@@ -32,18 +36,18 @@ export const Home = () => {
     };
 
     return (
-        <div className={s.home_main}>
+        <section className={s.home_main}>
             <div className={s.container}>
                 <div className="row">
                     <div className="col-lg-2">
                         {/*
                          * TODO: Add additional functionality for banners (props, etc.)
                          */}
-                        <Banner/>
-                        <Banner/>
+                        <Banner />
+                        <Banner />
                     </div>
                     <div className="col-lg-8">
-                        <HomeForm addPost={addPost}/>
+                        <HomeForm addPost={addPost} />
                         {posts.map((post) => {
                             return (
                                 <HomePost
@@ -61,12 +65,12 @@ export const Home = () => {
                         {/*
                          * TODO: Add functionality to show contacts that depends on data.
                          */}
-                        <ContactItem/>
-                        <ContactItem/>
-                        <ContactItem/>
+                        {myContacts.map((item) => {
+                            return <ContactItem name={item.name} surname={item.surname} avatar={item.avatar} />;
+                        })}
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     );
 };

@@ -1,0 +1,23 @@
+.container {
+    width: 100%;
+    max-width: 1100px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.section_friends {
+    display: flex;
+    justify-content: center;
+
+    h2 {
+        margin-bottom: 40px;
+    }
+
+    h6, p {
+        margin-bottom: 10px;
+    }
+}
+
+.may_know_friends {
+    margin-top: 40px;
+}
