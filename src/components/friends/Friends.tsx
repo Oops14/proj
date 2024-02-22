@@ -17,8 +17,17 @@ export const Friends = () => {
                 <div className="row">
                     {myFriends.map((item) => {
                         return (
-                            <div key={item.id} className="col-lg-3 col-md-4 col-sm-6">
-                                <FriendsItem name={item.name} surname={item.surname} avatar={item.avatar} city={item.city} university={item.university}/>
+                            <div
+                                key={item.id}
+                                className="col-lg-3 col-md-4 col-sm-6"
+                            >
+                                <FriendsItem
+                                    name={item.name}
+                                    surname={item.surname}
+                                    avatar={item.avatar}
+                                    city={item.city}
+                                    university={item.university}
+                                />
                             </div>
                         );
                     })}
@@ -26,6 +35,7 @@ export const Friends = () => {
 
                 <div className={s.may_know_friends}>
                     <h2>Friends you may know</h2>
+                    <div className="row"></div>
                 </div>
             </div>
         </section>

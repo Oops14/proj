@@ -7,6 +7,7 @@ const pages = [
     { title: "Friends", navlink: "/friends" },
     { title: "Groups", navlink: "/groups" },
     { title: "Messages", navlink: "/messages" },
+    { title: "Profile", navlink: "/my-profile" },
     { title: "Account", navlink: "/my-account" },
 ];
 

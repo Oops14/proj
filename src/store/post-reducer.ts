@@ -1,4 +1,4 @@
-import {v4 as uuidv4} from "uuid";
+import { v4 as uuidv4 } from "uuid";
 
 type AddPostACType = ReturnType<typeof AddPostAC>;
 type RemovePostACType = ReturnType<typeof RemovePostAC>;
@@ -37,7 +37,7 @@ export let RemovePostAC = (postId: string) => {
     return {
         type: "REMOVE_POST",
         payload: {
-            postId
+            postId,
         },
     } as const;
 };
@@ -46,7 +46,8 @@ export let EditPostAC = (postId: string, newDesc: string) => {
     return {
         type: "EDIT_POST",
         payload: {
-            postId, newDesc
+            postId,
+            newDesc,
         },
     } as const;
 };
@@ -60,13 +61,17 @@ export const postReducer = (state = initialState, action: ActionsType) => {
                 accountImage: "https://www.svgrepo.com/show/217131/google.svg",
                 postDescription: action.payload.description,
             };
-            return [...state, newValue];
+            return [newValue, ...state];
         }
         case "REMOVE_POST": {
-            return state.filter(post => post.id !== action.payload.postId);
+            return state.filter((post) => post.id !== action.payload.postId);
         }
         case "EDIT_POST": {
-            return state.map(post => post.id === action.payload.postId ? {...post, postDescription: action.payload.newDesc } : post);
+            return state.map((post) =>
+                post.id === action.payload.postId
+                    ? { ...post, postDescription: action.payload.newDesc }
+                    : post,
+            );
         }
         default: {
             return state;

@@ -7,7 +7,7 @@ export const Banner = () => {
         <div className={s.main_banner}>
             <div className={s.banner_image}>
                 <a href="#"></a>
-                <img src={logo} />
+                <img src={logo} alt={"#"}/>
             </div>
             <div>
                 <h5 className={s.banner_title}>

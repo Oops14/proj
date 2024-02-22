@@ -20,7 +20,7 @@ export type FriendsStateType = {
     avatar: string;
     city: string;
     university: string;
-}
+};
 
 let initialStateOfFriends = [
     {
@@ -29,7 +29,7 @@ let initialStateOfFriends = [
         surname: "Jackson",
         avatar: require("../assets/images/social.jpg"),
         city: "New Yourk",
-        university: 'KISM',
+        university: "KISM",
     },
     {
         id: uuidv4(),
@@ -37,7 +37,7 @@ let initialStateOfFriends = [
         surname: "Jackson",
         avatar: require("../assets/images/social.jpg"),
         city: "New Yourk",
-        university: 'KISM',
+        university: "KISM",
     },
     {
         id: uuidv4(),
@@ -45,7 +45,7 @@ let initialStateOfFriends = [
         surname: "Jackson",
         avatar: require("../assets/images/social.jpg"),
         city: "New Yourk",
-        university: 'KISM',
+        university: "KISM",
     },
     {
         id: uuidv4(),
@@ -53,7 +53,7 @@ let initialStateOfFriends = [
         surname: "Jackson",
         avatar: require("../assets/images/social.jpg"),
         city: "New Yourk",
-        university: 'KISM',
+        university: "KISM",
     },
 ];
 
